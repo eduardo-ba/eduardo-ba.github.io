@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plataforma Bloody - Conecta donantes de sangre con hospitales en Sinaloa">
+  <title>Bloody - Conecta. Dona. Salva vidas.</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="../../js/main.js"></script>
+</head>
+<body>
+<header>
+<div class="container header-inner" role="banner">
+    <div class="logo-container">
+        <a href="../../index.html" aria-label="Inicio - Bloody Platform" style="color: #fafafa; font-weight: bold; font-size: 1.3em; text-decoration: none;">Bloody</a>
+        <img src="../../images/logo.png" alt="Logo Bloody, estilizado en rojo y blanco, símbolo de donación de sangre" />
+    </div>
+    <nav role="navigation" aria-label="Menú principal">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" />
+        <label for="menu-toggle" class="hamburger" tabindex="0" aria-label="Abrir menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="main-nav">
+            <li><a href="../../index.html" data-view="inicio">Inicio</a></li>
+             <li><a href="../auth/login.html" data-view="registro-menu">Iniciar Sesión</a></li>
+            <li><a href="../public/contact.html" data-view="contacto">Contacto</a></li>
+            <li><a href="../public/faq.html" data-view="faq">FAQ</a></li>
+        </ul>
+      
+    </nav>
+</div>
+</header>
+</head>
+<body>
+<main>
+<!-- Panel de Administración -->
+<section id="panel-admin" tabindex="-1" role="region" aria-labelledby="panel-admin-title" class="admin-panel">
+  <h2 id="panel-admin-title" class="admin-title">Panel de Administración</h2>
+
+  <div class="stats-container">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="emoji">🩸</div>
+        <div class="value">128</div>
+        <div class="label">Donantes</div>
+      </div>
+      <div class="stat-box">
+        <div class="emoji">🏥</div>
+        <div class="value">7</div>
+        <div class="label">Centros Activos</div>
+      </div>
+      <div class="stat-box">
+        <div class="emoji">🗕️</div>
+        <div class="value">34</div>
+        <div class="label">Citas Hoy</div>
+      </div>
+      <div class="stat-box">
+        <div class="emoji">🔔</div>
+        <div class="value">3</div>
+        <div class="label">Notificaciones</div>
+      </div>
+    </div>
+
+    <div class="admin-tabs" role="tablist">
+      <button class="admin-tab-btn btn-secundario" role="tab" aria-selected="true" aria-controls="admin-tab-donantes" id="tab-donantes" onclick="mostrarAdminTab('donantes')">Donantes</button>
+      <button class="admin-tab-btn btn-secundario" role="tab" aria-selected="false" aria-controls="admin-tab-centros" id="tab-centros" onclick="mostrarAdminTab('centros')">Centros</button>
+      <button class="admin-tab-btn btn-secundario" role="tab" aria-selected="false" aria-controls="admin-tab-notificaciones" id="tab-notificaciones" onclick="mostrarAdminTab('notificaciones')">Notificaciones</button>
+      <button class="admin-tab-btn btn-secundario" role="tab" aria-selected="false" aria-controls="admin-tab-usuarios" id="tab-usuarios" onclick="mostrarAdminTab('usuarios')">Usuarios</button>
+    </div>
+
+    <!-- Donantes -->
+    <div id="admin-tab-donantes" class="admin-tab-content active" role="tabpanel" aria-labelledby="tab-donantes">
+      <h3>Lista de Donantes</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo de Sangre</th>
+            <th>Última Donación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Juan Pérez</td>
+            <td>juanperez@email.com</td>
+            <td>O+</td>
+            <td>2024-05-12</td>
+            <td>
+              <button class="btn-secundario">Ver</button>
+              <button class="btn-secundario">Editar</button>
+              <button class="btn-secundario">Desactivar</button>
+              <button class="btn-secundario">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>María López</td>
+            <td>marialopez@email.com</td>
+            <td>A-</td>
+            <td>2024-06-01</td>
+            <td>
+              <button class="btn-secundario">Ver</button>
+              <button class="btn-secundario">Editar</button>
+              <button class="btn-secundario">Desactivar</button>
+              <button class="btn-secundario">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Centros -->
+    <div id="admin-tab-centros" class="admin-tab-content" role="tabpanel" aria-labelledby="tab-centros" hidden>
+      <h3>Centros de Donación</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hospital Sharp Mazatlán</td>
+            <td>Av. Rafael Buelna y Dr. Kumate, Col. Hacienda las Cruces</td>
+            <td>Activo</td>
+            <td>
+              <button class="btn-secundario">Editar</button>
+              <button class="btn-secundario">Eliminar</button>
+            </td>
+          </tr>
+          <!-- ... otros centros ... -->
+        </tbody>
+      </table>
+      <button class="btn-primary" style="margin-top:1rem;">Agregar Centro</button>
+    </div>
+
+    <!-- Notificaciones -->
+ <div id="admin-tab-notificaciones" class="admin-tab-content" role="tabpanel" aria-labelledby="tab-notificaciones" hidden>
+  <h3>Notificaciones Recientes</h3>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Hora</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🩸 Donante</td>
+        <td>Nuevo donante registrado: <strong>María López</strong></td>
+        <td>Hace 2 horas</td>
+        <td>
+          <button class="btn-secundario">Ver</button>
+          <button class="btn-secundario">Eliminar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>📅 Cita</td>
+        <td>Cita confirmada para <strong>Juan Pérez</strong></td>
+        <td>Hace 1 hora</td>
+        <td>
+          <button class="btn-secundario">Ver</button>
+          <button class="btn-secundario">Eliminar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>🏥 Centro</td>
+        <td>Centro <strong>IMSS Los Mochis</strong> actualizado</td>
+        <td>Hace 10 minutos</td>
+        <td>
+          <button class="btn-secundario">Ver</button>
+          <button class="btn-secundario">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+    <!-- Usuarios -->
+    <div id="admin-tab-usuarios" class="admin-tab-content" role="tabpanel" aria-labelledby="tab-usuarios" hidden>
+      <h3>Gestión de Usuarios</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>admin@bloody.com</td>
+            <td>Administrador</td>
+            <td>Activo</td>
+            <td>
+              <button class="btn-secundario">Editar</button>
+              <button class="btn-secundario">Desactivar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>soporte@bloody.com</td>
+            <td>Soporte</td>
+            <td>Activo</td>
+            <td>
+              <button class="btn-secundario">Editar</button>
+              <button class="btn-secundario">Desactivar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn-primary" style="margin-top:1rem;" onclick="abrirModalUsuario()">Agregar Usuario</button>
+
+      <!-- Modal Usuario -->
+      <div id="modal-usuario" class="modal" style="display:none;">
+        <div class="modal-content">
+          <span class="close" onclick="cerrarModalUsuario()" tabindex="0" aria-label="Cerrar modal">&times;</span>
+          <h4>Agregar Usuario</h4>
+          <form id="form-usuario" onsubmit="guardarUsuario(event)">
+            <label for="usuario-email">Correo:</label>
+            <input type="email" id="usuario-email" name="email" required>
+            <label for="usuario-password">Contraseña:</label>
+            <input type="password" id="usuario-password" name="password" required minlength="6" autocomplete="new-password">
+            <label for="usuario-rol">Rol:</label>
+            <select id="usuario-rol" name="rol" required>
+              <option value="Administrador">Administrador</option>
+              <option value="Soporte">Soporte</option>
+            </select>
+            <label for="usuario-estado">Estado:</label>
+            <select id="usuario-estado" name="estado" required>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+            <button type="submit" class="btn-primary" style="margin-top:1rem;">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="btn-primary" onclick="window.history.back();">Atrás</button>
+    </div>
+  </div> <!-- fin de stats-container -->
+</section>
+</main>
+<footer>
+  <div class="container">
+    <p>© 2025 Bloody. Todos los derechos reservados.</p>
+  </div>
+
+
+  <script>
+function mostrarAdminTab(tab) {
+  // Oculta todos los contenidos
+  const tabs = document.querySelectorAll('.admin-tab-content');
+  tabs.forEach(t => {
+    t.classList.remove('active');
+    t.hidden = true;
+  });
+
+  // Desactiva todos los botones
+  const buttons = document.querySelectorAll('.admin-tab-btn');
+  buttons.forEach(btn => {
+    btn.setAttribute('aria-selected', 'false');
+  });
+
+  // Activa el contenido seleccionado
+  const activeContent = document.getElementById(`admin-tab-${tab}`);
+  if (activeContent) {
+    activeContent.classList.add('active');
+    activeContent.hidden = false;
+  }
+
+  // Marca el botón como seleccionado
+  const activeButton = document.getElementById(`tab-${tab}`);
+  if (activeButton) {
+    activeButton.setAttribute('aria-selected', 'true');
+  }
+}
+</script>

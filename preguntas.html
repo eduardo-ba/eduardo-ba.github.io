@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plataforma Bloody - Conecta donantes de sangre con hospitales en Sinaloa">
+  <title>Bloody - Conecta. Dona. Salva vidas.</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="../../js/main.js"></script>
+</head>
+<body>
+  <!-- Header -->
+<header>
+    <div class="container header-inner" role="banner">
+        <div class="logo-container">
+            <a href="../../index.html" aria-label="Inicio - Bloody Platform" style="color: #fafafa; font-weight: bold; font-size: 1.3em; text-decoration: none;">Bloody</a>
+            <img src="../../images/logo.png" alt="Logo Bloody, estilizado en rojo y blanco, símbolo de donación de sangre" />
+        </div>
+        <nav role="navigation" aria-label="Menú principal">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" />
+            <label for="menu-toggle" class="hamburger" tabindex="0" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="main-nav">
+                <li><a href="profile.html" data-view="inicio">Mi perfil</a></li>
+                <li><a href="../../index.html" data-view="inicio">Cerrar Sesión</a></li>
+                <li><a href="../donor/preguntas.html" data-view="inicio">FAQ</a></li>
+                <li><a href="../donor/contacto.html" data-view="inicio">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+<section id="faq" tabindex="-1" role="region" aria-labelledby="faq-title" style="background: #fff8f8; padding: 4rem 1rem; border-radius: 18px; box-shadow: 0 4px 18px rgba(176,2,2,0.08); margin: 3rem auto; max-width: 1000px;">
+  <div class="container">
+    <h2 id="faq-title" style="text-align: center; color: #000; margin-bottom: 2rem;">❓ Preguntas Frecuentes (FAQ)</h2>
+    <div class="faq-grid">
+      <div class="faq-item" tabindex="0">
+        <div class="faq-icon">🩸</div>
+        <div>
+          <h3>¿Quién puede donar sangre?</h3>
+          <p>Personas mayores de edad, con buena salud y sin enfermedades contagiosas.</p>
+        </div>
+      </div>
+      <div class="faq-item" tabindex="0">
+        <div class="faq-icon">📅</div>
+        <div>
+          <h3>¿Cómo se agenda una cita?</h3>
+          <p>Desde tu perfil, ve a "Nueva Cita" y elige el hospital, fecha y hora.</p>
+        </div>
+      </div>
+      <div class="faq-item" tabindex="0">
+        <div class="faq-icon">🔔</div>
+        <div>
+          <h3>¿Cómo funcionan las notificaciones?</h3>
+          <p>Recibirás avisos sobre tus citas, resultados y campañas importantes directamente en la plataforma.</p>
+        </div>
+      </div>
+      <div class="faq-item" tabindex="0">
+        <div class="faq-icon">🌐</div>
+        <div>
+          <h3>¿Para qué sirve esta página?</h3>
+          <p>La plataforma Bloody te permite registrarte como donante, agendar citas, consultar hospitales, recibir notificaciones y llevar el control de tu historial de donaciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+    <footer>
+    <p>© 2025 Bloody. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if(window.scrollY > 40){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+</body>
+</html>

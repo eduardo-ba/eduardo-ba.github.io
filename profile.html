@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plataforma Bloody - Conecta donantes de sangre con hospitales en Sinaloa">
+  <title>Bloody - Conecta. Dona. Salva vidas.</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="../../js/main.js"></script>
+</head>
+<body>
+  <!-- Header -->
+<header>
+    <div class="container header-inner" role="banner">
+        <div class="logo-container">
+            <a href="../../index.html" aria-label="Inicio - Bloody Platform" style="color: #fafafa; font-weight: bold; font-size: 1.3em; text-decoration: none;">Bloody</a>
+            <img src="../../images/logo.png" alt="Logo Bloody, estilizado en rojo y blanco, símbolo de donación de sangre" />
+        </div>
+        <nav role="navigation" aria-label="Menú principal">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" />
+            <label for="menu-toggle" class="hamburger" tabindex="0" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="main-nav">
+              <li><a href="profile.html" data-view="inicio">Mi perfil</a></li>
+                <li><a href="../../index.html" data-view="inicio">Cerrar Sesión</a></li>
+                <li><a href="../donor/preguntas.html" data-view="inicio">FAQ</a></li>
+                <li><a href="../donor/contacto.html" data-view="inicio">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+  <main class="user-panel">  
+    <!-- Perfil Donante -->
+    <section id="perfil-donante" class="visible user-section">
+      <div class="user-header" style="justify-content: center; text-align: center;">
+        <img src="../../images/avatar.png" alt="Foto de perfil" class="user-avatar" style="margin: 0 auto;" />
+        <div class="user-info flex-grow" style="text-align: center;">
+          <h2 id="donante-nombre">Cargando...</h2>
+          <div class="user-meta" style="justify-content: center; text-align: center;">
+            <span class="user-badge">Tipo de sangre: <span id="donante-tipo-sangre">Cargando...</span></span>
+            <span class="user-badge"><strong>Correo:</strong> <span id="donante-email">Cargando...</span></span>
+            <span class="user-badge"><strong>Teléfono:</strong> <span id="donante-telefono">Cargando...</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-details text-gray-700" style="text-align: justify; text-align-last: left;"></div>
+        <h3 class="section-title">Detalles Personales</h3>
+        <ul class="space-y-2 mb-6" style="display: inline-block; text-align: left;">
+          <li><strong>CURP:</strong> <span id="donante-curp">Cargando...</span></li>
+          <li><strong>Fecha de nacimiento:</strong> <span id="donante-nacimiento">Cargando...</span></li>
+          <li><strong>Género:</strong> <span id="donante-genero">Cargando...</span></li>
+          <li><strong>Discapacidad:</strong> <span id="donante-discapacidad">Cargando...</span></li>
+        </ul>
+        <h3 class="section-title">Resumen de Donaciones <div class="faq-item" tabindex="0"><div class="faq-icon">🩸</div></h3>
+        <ul class="space-y-2 mb-6" style="display: inline-block; text-align: left;">
+          <li><strong>Última donación:</strong> <span id="donante-ultima-donacion">N/A</span></li>
+          <li><strong>Donaciones totales:</strong> <span id="donante-total-donaciones">N/A</span></li>
+        </ul>
+        <div class="profile-extra-info user-section" style="text-align: justify; text-align-last: left;">
+  <h4 class="section-title">
+    Recomendaciones
+    <div class="faq-item" tabindex="0"><div class="faq-icon">🗣️</div></div>
+  </h4>
+  <ul id="lista-recomendaciones" class="list-disc list-inside text-gray-700 max-w-lg mx-auto space-y-2" style="display: inline-block; text-align: left;">
+    <li><strong>😴 Descansa bien:</strong> la noche anterior asegúrate de dormir suficiente.</li>
+    <li><strong>🥗 Desayuna ligero:</strong> evita alimentos grasos antes de donar.</li>
+    <li><strong>🪪 Lleva tu identificación:</strong> es obligatorio para poder donar.</li>
+    <li><strong>💧 Hidrátate:</strong> toma agua horas antes de la cita.</li>
+    <!-- Aquí se agregará automáticamente el tipo de sangre compatible -->
+  </ul>
+</div>
+
+</div>
+    </section>
+
+    <!-- Historial Donaciones -->
+    <section id="historial-donaciones" class="user-section" style="text-align: center;">
+    <h2 class="section-title">Historial de Donaciones <div class="faq-item" tabindex="0"><div class="faq-icon">📅</div></h2>
+      <div class="overflow-x-auto" style="display: flex; justify-content: center;">
+        <table class="donation-history" style="margin: 0 auto;">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Volumen</th>
+              <th>Resultados</th>
+              <th>Centro</th>
+            </tr>
+          </thead>
+          <tbody id="lista-donaciones">
+            <tr>
+              <td colspan="4" class="text-center py-4">Cargando historial de donaciones...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-right mt-6" style="text-align: center;">
+        <button type="button" class="btn-custom-primary" data-view="perfil-donante">Atrás</button>
+      </div>
+    </section>
+
+    <!-- Citas Programadas -->
+    <section id="citas-programadas" class="user-section" style="text-align: center;">
+      <h2 class="section-title">Citas Programadas</h2>
+      <ul id="lista-citas" style="display: inline-block; text-align: left;">
+        <li>Cargando citas...</li>
+      </ul>
+      <div class="text-center mt-6">
+        <button type="button" class="btn-custom-primary" data-view="perfil-donante">Atrás</button>
+      </div>
+    </section>
+
+    <!-- Nueva Cita -->
+    <section id="nueva-cita" class="user-section" style="text-align: center;">
+    <h2 class="section-title">Agendar Nueva Cita <div class="faq-item" tabindex="0"><div class="faq-icon">📅✏️</h2>
+      <form id="form-cita" style="display: inline-block; text-align: left;">
+        <div id="addCitaMessage"></div>
+        
+        <div class="user-form-group">
+          <label for="hospital-select">Centro</label>
+          <select id="hospital-select" name="centro_salud_id" required>
+            <option value="">Cargando hospitales...</option>
+          </select>
+        </div>
+
+        <div class="user-form-group">
+          <label for="fecha-hora">Fecha y Hora</label>
+          <input type="datetime-local" id="fecha-hora" name="fecha_hora" required />
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const dateTimeInput = document.getElementById('fecha-hora');
+
+            // Establecer la fecha y hora mínima al cargar
+            const initialNow = new Date();
+            initialNow.setMinutes(initialNow.getMinutes() - initialNow.getTimezoneOffset());
+            const nowISO = initialNow.toISOString().slice(0, 16);
+            dateTimeInput.min = nowISO;
+
+            // Validar la fecha/hora cuando el usuario cambia
+            dateTimeInput.addEventListener('change', function () {
+              const selectedDateTime = new Date(this.value);
+              const selectedHour = selectedDateTime.getHours();
+
+              const isForbiddenHour = selectedHour >= 18 || selectedHour < 6;
+
+              if (isForbiddenHour) {
+                alert('No puedes seleccionar horas entre las 6 PM y las 6 AM.');
+                this.value = '';
+                return;
+              }
+
+              // Obtener la fecha actual en el momento de la validación
+              const now = new Date();
+              now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // zona horaria
+
+              if (selectedDateTime < now) {
+                alert('No puedes seleccionar una fecha y hora pasada.');
+                this.value = '';
+                return;
+              }
+            });
+          }); // ← esta llave faltaba cerrar
+        </script> <!-- ← este cierre también -->
+
+        <div class="user-form-group">
+          <label for="notas-cita">Notas (opcional)</label>
+          <textarea id="notas-cita" name="notas" rows="3" placeholder="Ej. Necesito ayuda para llegar" style="width: 950px;"></textarea>
+        </div>
+
+        <div class="user-form-actions flex justify-center gap-4" style="text-align: center;">
+          <button type="submit" class="btn-custom-primary">Agendar cita</button>
+          <button type="button" class="btn-custom-secondary" data-view="perfil-donante">Atrás</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Notificaciones -->
+    <section id="notificaciones" class="user-section" style="text-align: center;">
+    <h2 class="section-title">Notificaciones <div class="faq-item" tabindex="0"><div class="faq-icon">🔔</div></h2>
+      <ul id="lista-notificaciones" style="display: inline-block; text-align: left;">
+        <li>Cargando notificaciones...</li>
+      </ul>
+      <div class="user-form-actions mt-4" style="text-align: center;">
+        <button id="btn-marcar-todas-leidas" type="button" class="btn-custom-primary">Marcar todas como leídas</button>
+        <button type="button" class="btn-custom-secondary" data-view="perfil-donante">Atrás</button>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="bg-red-700 text-white py-6 mt-12">
+    <div class="text-center text-sm">
+      <p>&copy; 2025 <strong>Bloody</strong>. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</div>
+  <script>
+    // Mostrar/ocultar contraseña
+    const passwordInput = document.getElementById('password');
+    const toggleBtn = document.getElementById('toggle-password');
+    const toggleIcon = document.getElementById('toggle-password-icon');
+
+    if (passwordInput && toggleBtn && toggleIcon) {
+      toggleBtn.addEventListener('click', function () {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        toggleIcon.textContent = isPassword ? 'Ocultar' : 'Mostrar';
+      });
+    }
+
+    // Limita la fecha máxima para mayores de 18 años
+    (function() {
+      const fechaInput = document.getElementById('fecha_nacimiento');
+      if (fechaInput) {
+        const today = new Date();
+        today.setFullYear(today.getFullYear() - 18);
+        fechaInput.max = today.toISOString().split('T')[0];
+      }
+    })();
+
+    // Manejo de navegación entre secciones
+  document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('.user-section');
+    const buttons = document.querySelectorAll('[data-view]');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const target = this.getAttribute('data-view');
+
+        sections.forEach(sec => {
+          sec.classList.remove('visible');
+        });
+
+        const targetSection = document.getElementById(target);
+        if (targetSection) {
+          targetSection.classList.add('visible');
+        }
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/bloody-project/api/api.php?action=get_centros_salud')
+      .then(res => res.json())
+      .then(data => {
+        const select = document.getElementById('hospital-select');
+        if (!select) return;
+
+        if (data.success && data.data.length > 0) {
+          select.innerHTML = '<option value="">Selecciona un hospital</option>';
+          data.data.forEach(centro => {
+            const opt = document.createElement('option');
+            opt.value = centro.id;
+            opt.textContent = centro.nombre;
+            select.appendChild(opt);
+          });
+        } else {
+          select.innerHTML = '<option value="">No hay hospitales</option>';
+        }
+      })
+      .catch(() => {
+        const select = document.getElementById('hospital-select');
+        if (select) select.innerHTML = '<option value="">Error al cargar</option>';
+      });
+  });
+document.addEventListener("DOMContentLoaded", function () {
+  const compatibilidad = {
+    "A+": {
+      dona: ["A+", "AB+"],
+      recibe: ["A+", "A-", "O+", "O-"]
+    },
+    "A-": {
+      dona: ["A+", "A-", "AB+", "AB-"],
+      recibe: ["A-", "O-"]
+    },
+    "B+": {
+      dona: ["B+", "AB+"],
+      recibe: ["B+", "B-", "O+", "O-"]
+    },
+    "B-": {
+      dona: ["B+", "B-", "AB+", "AB-"],
+      recibe: ["B-", "O-"]
+    },
+    "AB+": {
+      dona: ["AB+"],
+      recibe: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] // receptor universal
+    },
+    "AB-": {
+      dona: ["AB+", "AB-"],
+      recibe: ["A-", "B-", "AB-", "O-"]
+    },
+    "O+": {
+      dona: ["A+", "B+", "AB+", "O+"],
+      recibe: ["O+", "O-"]
+    },
+    "O-": {
+      dona: ["A+", "B+", "AB+", "O+", "A-", "B-", "AB-", "O-"], // donante universal
+      recibe: ["O-"]
+    }
+  };
+
+  const tipoSangreSpan = document.getElementById("donante-tipo-sangre");
+
+  // Esperar a que se cargue el tipo de sangre real
+  const interval = setInterval(() => {
+    const tipo = tipoSangreSpan.textContent.trim();
+    if (tipo && compatibilidad[tipo]) {
+      clearInterval(interval);
+
+      const datos = compatibilidad[tipo];
+      const recomendaciones = document.querySelector(".profile-extra-info ul");
+
+      // Elimina elementos de tipo sangre anteriores
+      while (recomendaciones.children.length > 4) {
+        recomendaciones.removeChild(recomendaciones.lastChild);
+      }
+
+      // Añade compatibilidad personalizada
+      const liDona = document.createElement("li");
+      liDona.textContent = `Puedes donar a: ${datos.dona.join(", ")}`;
+      recomendaciones.appendChild(liDona);
+
+      const liRecibe = document.createElement("li");
+      liRecibe.textContent = `Puedes recibir de: ${datos.recibe.join(", ")}`;
+      recomendaciones.appendChild(liRecibe);
+    }
+  }, 300);
+});
+
+
+</script>
+</body>
+</html>

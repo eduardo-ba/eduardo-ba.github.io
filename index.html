@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plataforma Bloody - Conecta donantes de sangre con hospitales en Sinaloa">
+  <title>Bloody - Conecta. Dona. Salva vidas.</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+<header>
+  <div class="container header-inner" role="banner">
+    <div class="logo-container">
+      <a href="#" aria-label="Inicio - Bloody Platform" style="color: #fafafa; font-weight: bold; font-size: 1.3em; text-decoration: none;">Bloody</a>
+      <img src="images/logo.png" alt="Logo Bloody, estilizado en rojo y blanco, símbolo de donación de sangre" />
+    </div>
+<nav role="navigation" aria-label="Menú principal">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" />
+  
+  <label for="menu-toggle" class="hamburger" tabindex="0" aria-label="Abrir menú de navegación">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="main-nav">
+    <li><a href="index.html" data-view="inicio">Inicio</a></li>
+    <li><a href="sections/auth/login.html" data-view="registro-menu">Registrarse</a></li>
+    <li><a href="sections/public/contact.html" data-view="contacto">Contacto</a></li>
+    <li><a href="sections/public/faq.html" data-view="faq">FAQ</a></li>
+  </ul>
+</nav>
+      </div>
+</header>
+
+  <main>
+  <section id="inicio" tabindex="-1" role="region" aria-labelledby="inicio-title">
+  <div class="container" style="text-align: center;">
+    <div class="hero" aria-label="Bienvenido a Bloody, plataforma de donación de sangre">
+      <h1 id="inicio-title">Conecta. Dona. Salva vidas.</h1>
+      <p><strong>Bloody</strong> es una plataforma digital diseñada para transformar la donación de sangre altruista en Sinaloa. Conectamos donantes voluntarios con hospitales de forma rápida, segura y cercana.</p>
+    </div>
+
+    <div class="features-section" aria-label="Beneficios para donantes con imágenes ilustrativas">
+      <div class="feature-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5600a2f7-602d-4ed3-a851-198d7401affe.png" alt="Persona horario agenda cita móvil para donación de sangre" class="feature-image" />
+        <h3>Agenda tu cita</h3>
+        <p>Selecciona el día y la hora que mejor se adapten a tu disponibilidad.</p>
+      </div>
+
+      <div class="feature-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f6d1b3c0-86de-450a-b8e2-88960d712129.png" alt="Entrada moderna de hospital con señal de donación de sangre" class="feature-image" />
+        <h3>Ubica un hospital</h3>
+        <p>Consulta qué hospitales cercanos están listos para recibir tu donación.</p>
+      </div>
+
+      <div class="feature-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c36f7ce3-ae6c-42d4-b8de-6d7bc1b1e844.png" alt="Notificación emergente en teléfono móvil, alerta importante de donación" class="feature-image" />
+        <h3>Recibe notificaciones</h3>
+        <p>Recibe alertas sobre tus citas, campañas urgentes y tu historial de donaciones.</p>
+      </div>
+    </div>
+    <section class="hospitals-section" aria-label="Hospitales asociados con mapa y lista" style="background: #fff8f8; border-radius: 18px; box-shadow: 0 2px 16px rgba(176,2,2,0.06); margin: 2.5rem auto; padding: 2.5rem 1.5rem; max-width: 1000px;">
+      <h2 style="color: #b00202; text-align: center; margin-bottom: 1.5rem;">Hospitales Asociados</h2>
+      
+      <div class="map-container" role="region" aria-label="Mapa interactivo de hospitales asociados para donación" style="display: flex; justify-content: center; margin-bottom: 2.5rem;">
+        <iframe 
+          id="hospital-map"
+          src="https://www.google.com/maps/d/embed?mid=1PVt1pFmg65vSnwbzXFOcpYvOZRwjhIY&ehbc=2E312F" 
+          title="Mapa de hospitales asociados para donación de sangre en Sinaloa"
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade" 
+          aria-hidden="false" 
+          tabindex="0"
+          width="100%" height="350" style="border:0; border-radius: 12px; max-width: 900px;">
+        </iframe>
+      </div>
+
+      <div class="hospital-cards" style="display: flex; flex-wrap: wrap; gap: 2.2rem 1.5rem; justify-content: center;">
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="Hospital Sharp Mazatlán Avenida Rafael Buelna y Jesús Kumate, Hacienda las Cruces, 82126 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">Hospital Sharp Mazatlán</h3>
+          <p style="color: #333;">Avenida Rafael Buelna y Jesús Kumate, Hacienda las Cruces, 82126</p>
+        </div>
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="Hospital General de Mazatlán Av Óscar Pérez Escobosa #6505, 82275 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">Hospital General “Dr. Martiniano Carvajal”</h3>
+          <p style="color: #333;">Av Óscar Pérez Escobosa #6505, 82275</p>
+        </div>
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="IMSS HGZMF 003 Sembradores de la Amistad, 82146 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">IMSS HGZ No. 3 Mazatlán</h3>
+          <p style="color: #333;">Sembradores de la Amistad, 82146</p>
+        </div>
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="ISSSTE Clínica Hospital, Mazatlán Internacional 107, Plaza San Ignacio, 82020 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">ISSSTE Mazatlán</h3>
+          <p style="color: #333;">Internacional 107, Plaza San Ignacio, 82020</p>
+        </div>
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="Clínica del Mar Av. Revolución SN, Lopez Mateos, 82140 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">Clínica del Mar</h3>
+          <p style="color: #333;">Av. Revolución SN, Lopez Mateos, 82140</p>
+        </div>
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="San Rafael Av. Lomas de Mazatlán 408, Lomas de Mazatlán, 82110 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">Banco de Sangre San Rafael</h3>
+          <p style="color: #333;">Av. Lomas de Mazatlán 408, Lomas de Mazatlán, 82110</p>
+        </div>
+        <div class="hospital-card" tabindex="0" role="button" aria-pressed="false" data-address="Analisis Clínicos Ledon Av. Rafael Buelna 28, Lomas de Mazatlán, 82110 Mazatlán, Sin." style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(176,2,2,0.08); padding: 1.2rem 1rem; min-width: 220px; max-width: 270px; flex: 1 1 220px; transition: box-shadow 0.2s; border-left: 5px solid #b00202; margin-bottom: 1.5rem;">
+          <h3 style="color: #b00202; margin-top: 0;">Análisis Clínicos y Banco de Sangre Ledon</h3>
+          <p style="color: #333;">Av. Rafael Buelna 28, Lomas de Mazatlán, 82110</p>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.querySelectorAll('.hospital-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const address = encodeURIComponent(this.getAttribute('data-address'));
+          const mapUrl = `https://www.google.com/maps?q=${address}&output=embed`;
+          document.getElementById('hospital-map').src = mapUrl;
+        });
+        card.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+    </script>
+
+
+    <div class="about-section" aria-label="Información sobre la plataforma y equipo" style="background: #fff8f8; border-radius: 18px; box-shadow: 0 2px 16px rgba(176,2,2,0.06); margin: 2.5rem auto; padding: 2.5rem 1.5rem; max-width: 1000px;">
+      <h2 style="color: #000; text-align: center;">Sobre Nosotros</h2>
+      <p>
+        Somos un equipo comprometido con la salud pública. Nuestro objetivo es facilitar el proceso de donación de sangre mediante una plataforma accesible y automatizada, que permita registrar donantes, gestionar citas, enviar notificaciones y mantener un historial de donaciones.
+      </p>
+      <p>
+        Con Bloody, cada donación cuenta. Únete a nuestra comunidad y sé parte del cambio.
+      </p>
+    </div>
+  </div>
+</section>
+  </main>
+
+    <footer>
+    <p>© 2025 Bloody. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if(window.scrollY > 40){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+</body>
+</html>

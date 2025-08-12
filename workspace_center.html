@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plataforma Bloody - Conecta donantes de sangre con hospitales en Sinaloa" />
+  <title>Bloody - Conecta. Dona. Salva vidas.</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="../../js/main.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner" role="banner">
+      <div class="logo-container">
+          <a href="../../index.html" aria-label="Inicio - Bloody Platform" style="color: #fafafa; font-weight: bold; font-size: 1.3em; text-decoration: none;">Bloody</a>
+          <img src="../../images/logo.png" alt="Logo Bloody, estilizado en rojo y blanco, símbolo de donación de sangre" />
+      </div>
+      <nav role="navigation" aria-label="Menú principal">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" />
+          <label for="menu-toggle" class="hamburger" tabindex="0" aria-label="Abrir menú de navegación">
+              <span></span>
+              <span></span>
+              <span></span>
+          </label>
+          <ul class="main-nav">
+            <li><a href="../../index.html" data-view="inicio">Inicio</a></li>
+             <li><a href="../auth/login.html" data-view="registro-menu">Iniciar Sesión</a></li>
+            <li><a href="../public/contact.html" data-view="contacto">Contacto</a></li>
+            <li><a href="../public/faq.html" data-view="faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="panel-centro" tabindex="-1" role="region" aria-labelledby="panel-centro-title">
+      <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        <h2 id="panel-centro-title" style="text-align:center; color:#355a5d; font-size: 2.4em; margin-bottom: 1.5rem;">🏥 Panel del Centro de Salud</h2>
+
+        <!-- Resumen del día -->
+        <div class="dashboard-resumen" style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-bottom:2rem;">
+          <div class="card-dashboard">
+            <div class="emoji">🩸</div>
+            <div class="info" id="donaciones-hoy">5 Donaciones Hoy</div>
+          </div>
+          <div class="card-dashboard">
+            <div class="emoji">📅</div>
+            <div class="info" id="citas-confirmadas">4 Citas Confirmadas</div>
+          </div>
+          <div class="card-dashboard">
+            <div class="emoji">🧪</div>
+            <div class="info">Inventario Óptimo</div>
+          </div>
+        </div>
+
+        <div class="centro-actions" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+          <button class="btn-secundario" id="btn-agregar-resultado">➕ Agregar Resultado</button>
+          <button class="btn-secundario" id="btn-confirmar-asistencia">✅ Confirmar Asistencia</button>
+          <button class="btn-secundario" id="btn-enviar-notificacion">📤 Enviar Notificación</button>
+        </div>
+
+        <div class="vista-previa-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div class="card-panel">
+            <h3>📅 Citas de Hoy</h3>
+            <ul id="lista-citas">
+              <li>10:00 AM - Juan Pérez</li>
+              <li>10:30 AM - Ana Torres</li>
+            </ul>
+          </div>
+          <div class="card-panel">
+            <h3>🩸 Donaciones</h3>
+            <ul id="lista-donaciones">
+              <li>Juan Pérez (O+)</li>
+              <li>María López (A-)</li>
+            </ul>
+          </div>
+          <div class="card-panel">
+            <h3>🔔 Notificaciones</h3>
+            <ul id="lista-notificaciones">
+              <li>📬 Resultado de análisis disponible</li>
+              <li>⏰ Recordatorio enviado</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="centro-opciones-lista" style="max-width:700px; margin:2rem auto;">
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Información del centro')">🏥 Información General</button></li>
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Historial de donaciones')">🩸 Donaciones</button></li>
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Agenda completa')">📅 Agenda de Citas</button></li>
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Centro de notificaciones')">🔔 Notificaciones</button></li>
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Inventario detallado')">🧪 Inventario</button></li>
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Reportes disponibles')">📊 Reportes</button></li>
+            <li style="margin-bottom:1rem;"><button class="btn-secundario full-width" onclick="alert('Demo: Ajustes del centro')">⚙️ Configuración</button></li>
+          </ul>
+        </div>
+
+        <div style="text-align:center; margin-top:2rem;">
+          <button class="btn-primary" onclick="window.history.back();">⬅️ Volver</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Bloody. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Mensajes dinámicos -->
+  <div id="message-box" role="alert" aria-live="assertive"></div>
+
+<script>
+  // Función para mostrar mensajes temporales
+  function showMessage(text) {
+    const msgBox = document.getElementById('message-box');
+    msgBox.textContent = text;
+    msgBox.style.display = 'block';
+    setTimeout(() => {
+      msgBox.style.display = 'none';
+    }, 3000);
+  }
+
+  // Agregar resultado de donación (simulado)
+  document.getElementById('btn-agregar-resultado').addEventListener('click', () => {
+    showMessage('Resultado de donación agregado correctamente.');
+  });
+
+  // Confirmar asistencia con confirm()
+  document.getElementById('btn-confirmar-asistencia').addEventListener('click', () => {
+    if(confirm('¿Confirmar asistencia del donante?')) {
+      showMessage('Asistencia confirmada.');
+    } else {
+      showMessage('Acción cancelada.');
+    }
+  });
+
+  // Enviar notificación (simulado)
+  document.getElementById('btn-enviar-notificacion').addEventListener('click', () => {
+    const listaNotificaciones = document.getElementById('lista-notificaciones');
+    const newNoti = document.createElement('li');
+    newNoti.textContent = `📬 Notificación enviada a donantes - ${new Date().toLocaleTimeString()}`;
+    listaNotificaciones.prepend(newNoti);
+    showMessage('Notificación enviada a donantes.');
+  });
+
+</script>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+</body>
+</html>

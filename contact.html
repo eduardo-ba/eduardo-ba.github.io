@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plataforma Bloody - Conecta donantes de sangre con hospitales en Sinaloa">
+  <title>Bloody - Conecta. Dona. Salva vidas.</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container header-inner" role="banner">
+    <div class="logo-container">
+      <a href="../../index.html" aria-label="Inicio - Bloody Platform" style="color: #fafafa; font-weight: bold; font-size: 1.3em; text-decoration: none;">Bloody</a>
+      <img src="../../images/logo.png" alt="Logo Bloody, estilizado en rojo y blanco, símbolo de donación de sangre" />
+    </div>
+    <nav role="navigation" aria-label="Menú principal">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" />
+      <label for="menu-toggle" class="hamburger" tabindex="0" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="main-nav">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../auth/login.html">Registrarse</a></li>
+        <li><a href="../public/contact.html" class="active" aria-current="page">Contacto</a></li>
+        <li><a href="../public/faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Main -->
+<main>
+  <section id="contacto" tabindex="-1" role="region" aria-label="Formulario de contacto">
+    <div class="container" style="max-width: 400px; margin: 2em auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 2em;">
+      <h2 style="text-align: center; margin-bottom: 0.5em;">Contacto</h2>
+      <p style="text-align: center; margin-bottom: 1.5em;">Correo: <a href="mailto:ejemplo@correo.com">ejemplo@correo.com</a></p>
+      
+      <form id="contact-form" class="form-login" style="display: flex; flex-direction: column; gap: 1em;">
+        <div style="display: flex; flex-direction: column;">
+          <label for="contacto-nombre">Nombre</label>
+          <input type="text" id="contacto-nombre" name="nombre" required style="padding: 0.7em; border: 1px solid #ddd; border-radius: 5px;" />
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <label for="contacto-email">Correo</label>
+          <input type="email" id="contacto-email" name="email" required style="padding: 0.7em; border: 1px solid #ddd; border-radius: 5px;" />
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <label for="contacto-mensaje">Mensaje</label>
+          <textarea id="contacto-mensaje" name="mensaje" required rows="4" style="padding: 0.7em; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="padding: 0.8em; border-radius: 5px; border: none; font-weight: bold; cursor: pointer;">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Bloody. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Script contacto simple -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch('/bloody-project/api/api.php?action=send_contact_message', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          alert('Mensaje enviado correctamente.');
+          form.reset();
+        } else {
+          alert('Error: ' + (result.message || 'No se pudo enviar.'));
+        }
+      } catch (error) {
+        alert('Error de red o servidor.');
+        console.error('Error al enviar contacto:', error);
+      }
+    });
+  });
+</script>
+
+<!-- Script para scroll del header -->
+<script>
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>
